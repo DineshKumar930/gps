@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajkiya Polytechnic Sahajanwa Gorakhpur</title>
+	<link href="https://media-del1-2.cdn.whatsapp.net/v/t61.24694-24/491843411_3166717743491158_6494705642743030312_n.jpg?ccb=11-4&oh=01_Q5Aa2AHKe1ciS5n0mNIlP7oUwVqiJpJGbjwgqx15g76NO2uptA&oe=689ACAEC&_nc_sid=5e03e0&_nc_cat=104" rel="icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #e74c3c;
+            --accent-color: #f39c12;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 70px;
+            margin-right: 15px;
+			border-radius:50%;
+        }
+        
+        .college-name {
+            line-height: 1.2;
+        }
+        
+        .college-name h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .college-name p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--secondary-color);
+            padding: 10px 0;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            position: relative;
+        }
+        
+        .nav-menu li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            width: 200px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        
+        .nav-menu li:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .dropdown-menu li a {
+            color: var(--dark-color);
+            padding: 10px 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .dropdown-menu li a:hover {
+            background-color: #f8f9fa;
+            color: var(--secondary-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 500px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('C:\Users\PMKK Dhanbad\Desktop/gal.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Quick Links */
+        .quick-links {
+            padding: 50px 20px;
+            background-color: var(--light-color);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .links-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .link-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+			padding:20px;
+        }
+        
+        .link-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .link-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin: 20px 0;
+        }
+        
+        .link-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .link-card p {
+            padding: 0 20px 20px;
+            color: #666;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 20px;
+            background-color: white;
+        }
+        
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-content h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+            color: #555;
+			
+        }
+        
+        /* Courses Section */
+        .courses {
+            padding: 80px 20px;
+            background-color: var(--light-color);
+        }
+        
+        .courses-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .course-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .course-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .course-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .course-card:hover .course-image img {
+            transform: scale(1.1);
+        }
+        
+        .course-content {
+            padding: 20px;
+        }
+        
+        .course-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .course-content p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            padding: 80px 20px;
+            background-color: white;
+        }
+        
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            height: 250px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-overlay i {
+            color: white;
+            font-size: 2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 50px 20px 20px;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        .footer-col p {
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: white;
+            opacity: 0.8;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            padding-left: 5px;
+            color: var(--secondary-color);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 120px;
+                left: -100%;
+                width: 100%;
+                flex-direction: column;
+                background-color: var(--secondary-color);
+                transition: all 0.5s ease;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                width: 100%;
+                opacity: 1;
+                visibility: visible;
+                display: none;
+                background-color: rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-menu li:hover .dropdown-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .college-name h1 {
+                font-size: 1.2rem;
+            }
+            
+            .college-name p {
+                font-size: 0.8rem;
+            }
+            
+            .hero {
+                height: 400px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="top-bar">
+            <div class="logo-container">
+                <img src="https://media-del1-2.cdn.whatsapp.net/v/t61.24694-24/491843411_3166717743491158_6494705642743030312_n.jpg?ccb=11-4&oh=01_Q5Aa2AHKe1ciS5n0mNIlP7oUwVqiJpJGbjwgqx15g76NO2uptA&oe=689ACAEC&_nc_sid=5e03e0&_nc_cat=104" alt="College Logo" class="logo">
+                <div class="college-name">
+                    <h1>Rajkiya Polytechnic Sahajanwa</h1>
+                    <p>Gorakhpur, Uttar Pradesh</p>
+                </div>
+            </div>
+            <div class="contact-info">
+                <p><i class="fas fa-phone"></i> +91 8732434667</p>
+                <p><i class="fas fa-envelope"></i> info@gorakhpur.ac.in</p>
+            </div>
+        </div>
+        
+        <nav>
+            <div class="nav-container">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#">Home</a></li>
+                    <li>
+                        <a href="#">About <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">About College</a></li>
+                            <li><a href="#">Vision & Mission</a></li>
+                            <li><a href="#">Principal's Message</a></li>
+                            <li><a href="#">Administration</a></li>
+                            <li><a href="#">Infrastructure</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Academics <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Courses Offered</a></li>
+                            <li><a href="#">Syllabus</a></li>
+                            <li><a href="#">Academic Calendar</a></li>
+                            <li><a href="#">Examination</a></li>
+                            <li><a href="#">Results</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Departments <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Computer Science</a></li>
+                            <li><a href="#">Electrical Engineering</a></li>
+                            <li><a href="#">Mechanical Engineering</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Admissions <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Admission Procedure</a></li>
+                            <li><a href="#">Eligibility Criteria</a></li>
+                            <li><a href="#">Fee Structure</a></li>
+                            <li><a href="#">Scholarships</a></li>
+                            <li><a href="#">Important Dates</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Placements</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Empowering Technical Education Since 01-August-2025</h1>
+            <p>Rajkiya Polytechnic Sahajanwa is committed to providing quality technical education and creating skilled professionals for the industry.</p>
+            <a href="#" class="btn">Explore Courses</a>
+        </div>
+    </section>
+    
+    <!-- Quick Links Section -->
+    <section class="quick-links">
+        <div class="section-title">
+            <h2>Quick Links</h2>
+        </div>
+        <div class="links-container">
+            <div class="link-card">
+                <div class="link-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>Admissions</h3>
+                <p>Information about admission process, eligibility criteria and important dates.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+            <div class="link-card">
+                <div class="link-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <h3>Academics</h3>
+                <p>Details about courses, syllabus, academic calendar and examination.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+            <div class="link-card">
+                <div class="link-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3>Departments</h3>
+                <p>Explore our various departments and their facilities.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+            <div class="link-card">
+                <div class="link-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <h3>Placements</h3>
+                <p>Information about placement opportunities and recruiters.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="about">
+        <div class="about-container">
+            <div class="about-content">
+                <h2>About Rajkiya Polytechnic Sahajanwa</h2>
+                <p>Established in 1997, Rajkiya Polytechnic Sahajanwa is a premier technical institute in Gorakhpur, Uttar Pradesh, offering diploma courses in various engineering disciplines.</p>
+                <p>Our institute is affiliated with the Board of Technical Education, Uttar Pradesh, and approved by AICTE. We are committed to providing quality technical education to create skilled professionals for the industry.</p>
+                <p>With state-of-the-art infrastructure, experienced faculty, and industry-relevant curriculum, we strive to nurture innovation and excellence among our students.</p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+            <div class="about-image">
+                <img src="C:\Users\PMKK Dhanbad\Desktop/gal.jpg" alt="College Campus">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Courses Section -->
+    <section class="courses">
+        <div class="section-title">
+            <h2>Our Courses</h2>
+        </div>
+        <div class="courses-container">
+            <div class="course-card">
+                <div class="course-image">
+                    <img src="https://c8.alamy.com/comp/F08JHA/science-concept-computer-science-on-digital-background-F08JHA.jpg" alt="Computer Science">
+                </div>
+                <div class="course-content">
+                    <h3>Diploma in Computer Science & Engineering</h3>
+                    <p>3-year diploma program covering programming, database management, networking and software development.</p>
+                    <div class="course-meta">
+                        <span><i class="fas fa-clock"></i> 3 Years</span>
+                        <span><i class="fas fa-users"></i> 60 Seats</span>
+                    </div>
+                </div>
+            </div>
+            <div class="course-card">
+                <div class="course-image">
+                    <img src="https://th.bing.com/th/id/OSK.HEROvqtmxqQuR0H0OHyC5ke6nsCZUezZulkHGeeDu8_-LCU?w=472&h=280&c=1&rs=2&o=6&pid=SANGAM" alt="Electrical Engineering">
+                </div>
+                <div class="course-content">
+                    <h3>Diploma in Electrical Engineering</h3>
+                    <p>Comprehensive program covering electrical machines, power systems, control systems and renewable energy.</p>
+                    <div class="course-meta">
+                        <span><i class="fas fa-clock"></i> 3 Years</span>
+                        <span><i class="fas fa-users"></i> 60 Seats</span>
+                    </div>
+                </div>
+            </div>
+            <div class="course-card">
+                <div class="course-image">
+                    <img src="https://www.chitkara.edu.in/blogs/wp-content/uploads/2023/04/Mechanical_Engineers_Work-3.jpg" alt="Mechanical Engineering">
+                </div>
+                <div class="course-content">
+                    <h3>Diploma in Mechanical Engineering</h3>
+                    <p>Hands-on training in manufacturing, thermal engineering, automobile and industrial engineering.</p>
+                    <div class="course-meta">
+                        <span><i class="fas fa-clock"></i> 3 Years</span>
+                        <span><i class="fas fa-users"></i> 60 Seats</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <div class="section-title">
+            <h2>Campus Gallery</h2>
+        </div>
+        <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="https://content.jdmagicbox.com/comp/kanpur/g7/0512px512.x512.211011003934.j9g7/catalogue/delight-library-navin-nagar-kanpur-libraries-gfwem4ljdd.jpg" alt="College Library">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="data:image/jpeg;base64,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" alt="Workshop">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIX_al76EkBHcdjH0pnvQfcKsg3eMAOVbdBw&s" alt="Seminar Hall">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://www.edumilestones.com/career-library/images/sports-person.png" alt="Sports">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>About Us</h3>
+                <p>Rajkiya Polytechnic Sahajanwa is a premier technical institute in Gorakhpur, Uttar Pradesh, offering quality diploma education in various engineering disciplines.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About College</a></li>
+                    <li><a href="#">Academics</a></li>
+                    <li><a href="#">Departments</a></li>
+                    <li><a href="#">Admissions</a></li>
+                    <li><a href="#">Placements</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Sahajanwa, Gorakhpur, Uttar Pradesh - 273209</p>
+                <p><i class="fas fa-phone"></i> +91 XXXXX XXXXX</p>
+                <p><i class="fas fa-envelope"></i> info@rpsgorakhpur.ac.in</p>
+                <p><i class="fas fa-globe"></i> www.rpsgorakhpur.ac.in</p>
+            </div>
+            <div class="footer-col">
+                <h3>Important Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">AICTE</a></li>
+                    <li><a href="#">BTEUP</a></li>
+                    <li><a href="#">DTE Uttar Pradesh</a></li>
+                    <li><a href="#">Government of UP</a></li>
+                    <li><a href="#">NPTEL</a></li>
+                    <li><a href="#">SWAYAM</a></li>
+                </ul>
+
+    
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
